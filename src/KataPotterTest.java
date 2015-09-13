@@ -7,12 +7,46 @@ public class KataPotterTest {
 	@Test
 	public void test_book_none_price_0() {
 
-		ArrayList<Book> bookList = new ArrayList<Book>();
+		ArrayList<PotterBook> bookList = new ArrayList<PotterBook>();
 		Cart cart1 = new Cart(bookList);
 		assertEquals(0, cart1.getPrice(), 0);
 
 		Cart cart2 = new Cart(null);
 		assertEquals(0, cart2.getPrice(), 0);
+	}
+	
+	@Test
+	public void test_book_1_price_100() {
+
+		ArrayList<PotterBook> bookList = new ArrayList<PotterBook>();
+		PotterBook potterBook1 = new PotterBook(1, 100);
+		bookList.add(potterBook1);
+		Cart cart = new Cart(bookList);
+		assertEquals(100, cart.getPrice(), 0);
+
+		bookList.clear();
+		PotterBook potterBook2 = new PotterBook(2, 100);
+		bookList.add(potterBook2);
+		cart = new Cart(bookList);
+		assertEquals(100, cart.getPrice(), 0);
+		
+		bookList.clear();
+		PotterBook potterBook3 = new PotterBook(3, 100);
+		bookList.add(potterBook3);
+		cart = new Cart(bookList);
+		assertEquals(100, cart.getPrice(), 0);
+		
+		bookList.clear();
+		PotterBook potterBook4 = new PotterBook(4, 100);
+		bookList.add(potterBook4);
+		cart = new Cart(bookList);
+		assertEquals(100, cart.getPrice(), 0);
+		
+		bookList.clear();
+		PotterBook potterBook5 = new PotterBook(5, 100);
+		bookList.add(potterBook4);
+		cart = new Cart(bookList);
+		assertEquals(100, cart.getPrice(), 0);
 	}
 
 }
