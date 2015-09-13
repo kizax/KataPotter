@@ -8,9 +8,11 @@ public class KataPotterTest {
 	public void test_book_none_price_0() {
 
 		ArrayList<Book> bookList = new ArrayList<Book>();
-		Cart cart = new Cart(bookList);
+		Cart cart1 = new Cart(bookList);
+		assertEquals(0, cart1.getPrice(), 0);
 
-		assertEquals(0, cart.getPrice(), 0);
+		Cart cart2 = new Cart(null);
+		assertEquals(0, cart2.getPrice(), 0);
 	}
 
 }

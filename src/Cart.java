@@ -9,6 +9,9 @@ public class Cart {
 	}
 
 	public double getPrice() {
-		return 0;
+		if (bookList == null || bookList.size() == 0) {
+			return 0;
+		} else
+			return 0;
 	}
 }
