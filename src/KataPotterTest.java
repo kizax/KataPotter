@@ -44,9 +44,68 @@ public class KataPotterTest {
 		
 		bookList.clear();
 		PotterBook potterBook5 = new PotterBook(5, 100);
-		bookList.add(potterBook4);
+		bookList.add(potterBook5);
 		cart = new Cart(bookList);
 		assertEquals(100, cart.getPrice(), 0);
+	}
+	
+	@Test
+	public void test_book_2_same_book_price_200() {
+
+		ArrayList<PotterBook> bookList = new ArrayList<PotterBook>();
+		PotterBook potterBook1 = new PotterBook(1, 100);
+		bookList.add(potterBook1);
+		bookList.add(potterBook1);
+		Cart cart = new Cart(bookList);
+		assertEquals(200, cart.getPrice(), 0);
+
+		bookList.clear();
+		PotterBook potterBook2 = new PotterBook(2, 100);
+		bookList.add(potterBook2);
+		bookList.add(potterBook2);
+		cart = new Cart(bookList);
+		assertEquals(200, cart.getPrice(), 0);
+		
+		bookList.clear();
+		PotterBook potterBook3 = new PotterBook(3, 100);
+		bookList.add(potterBook3);
+		bookList.add(potterBook3);
+		cart = new Cart(bookList);
+		assertEquals(200, cart.getPrice(), 0);
+		
+		bookList.clear();
+		PotterBook potterBook4 = new PotterBook(4, 100);
+		bookList.add(potterBook4);
+		bookList.add(potterBook4);
+		cart = new Cart(bookList);
+		assertEquals(200, cart.getPrice(), 0);
+		
+		bookList.clear();
+		PotterBook potterBook5 = new PotterBook(5, 100);
+		bookList.add(potterBook5);
+		bookList.add(potterBook5);
+		cart = new Cart(bookList);
+		assertEquals(200, cart.getPrice(), 0);
+	}
+	
+	@Test
+	public void test_book_2_different_book_price_190() {
+
+		ArrayList<PotterBook> bookList = new ArrayList<PotterBook>();
+		PotterBook potterBook1 = new PotterBook(1, 100);
+		PotterBook potterBook2 = new PotterBook(2, 100);
+		PotterBook potterBook3 = new PotterBook(3, 100);
+		bookList.add(potterBook1);
+		bookList.add(potterBook2);
+		Cart cart = new Cart(bookList);
+		assertEquals(190, cart.getPrice(), 0);
+
+		bookList.clear();
+		bookList.add(potterBook2);
+		bookList.add(potterBook3);
+		cart = new Cart(bookList);
+		assertEquals(190, cart.getPrice(), 0);
+		
 	}
 
 }

@@ -13,8 +13,13 @@ public class Cart {
 			return 0;
 		} else if (bookList.size() == 1) {
 			return bookList.get(0).getPrice();
-		} else {
-			return 0;
+		} else if (bookList.size() == 2) {
+			if (bookList.get(0).getEpisode() == bookList.get(1).getEpisode()) {
+				return bookList.get(0).getPrice() + bookList.get(0).getPrice();
+			}else{
+				return (bookList.get(0).getPrice() + bookList.get(0).getPrice())*0.95;
+			}
 		}
+		return 0;
 	}
 }
