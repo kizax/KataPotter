@@ -36,17 +36,17 @@ public class Cart {
 
 			return 0;
 		} else {
-			int[] countArray = getCountArray(bookList);
-			ArrayList<int[]> subsetList = getSubsetList(countArray);
+			int[] countSet = getCountSet(bookList);
+			ArrayList<int[]> subsetList = getSubsetList(countSet);
 
 			double minPrice = Double.MAX_VALUE;
 			for (int[] subset : subsetList) {
-				int[] differenceSet = getDifferenceSet(countArray, subset);
+				int[] differenceSet = getDifferenceSet(countSet, subset);
 				if (!isAllZero(subset) && !isAllZero(differenceSet)) {
 
 
-					Cart cart1 = new Cart(setToBookList(subset));
-					Cart cart2 = new Cart(setToBookList(differenceSet));
+					Cart cart1 = new Cart(parseSetToBookList(subset));
+					Cart cart2 = new Cart(parseSetToBookList(differenceSet));
 					double price = cart1.getPrice() + cart2.getPrice();
 
 					if (price < minPrice) {
@@ -76,29 +76,29 @@ public class Cart {
 		return true;
 	}
 
-	private int[] getCountArray(ArrayList<PotterBook> bookList) {
+	private int[] getCountSet(ArrayList<PotterBook> bookList) {
 
-		int[] countArray = new int[5];
+		int[] countSet = new int[5];
 		for (PotterBook book : bookList) {
 			switch (book.getEpisode()) {
 			case 1:
-				countArray[0]++;
+				countSet[0]++;
 				break;
 			case 2:
-				countArray[1]++;
+				countSet[1]++;
 				break;
 			case 3:
-				countArray[2]++;
+				countSet[2]++;
 				break;
 			case 4:
-				countArray[3]++;
+				countSet[3]++;
 				break;
 			case 5:
-				countArray[4]++;
+				countSet[4]++;
 				break;
 			}
 		}
-		return countArray;
+		return countSet;
 	}
 
 	private int[] getDifferenceSet(int[] setA, int[] setB) {
@@ -119,22 +119,22 @@ public class Cart {
 		return price;
 	}
 
-	private ArrayList<int[]> getSubsetList(int[] countArray) {
+	private ArrayList<int[]> getSubsetList(int[] set) {
 		ArrayList<int[]> subsetList = new ArrayList<int[]>();
 
-		if (isAllZero(countArray)) {
+		if (isAllZero(set)) {
 			int[] allZeroSet = { 0, 0, 0, 0, 0 };
 			subsetList.add(allZeroSet);
 		} else {
 			for (int i = 0; i < 5; i++) {
-				if (countArray[i] > 0) {
-					for (int count = 0; count <= countArray[i]; count++) {
-						int[] countArrayCopy = countArray.clone();
-						countArrayCopy[i] = 0;
-						for (int[] tempArray : getSubsetList(countArrayCopy)) {
-							int[] tempArrayCopy = tempArray.clone();
-							tempArrayCopy[i] = count;
-							subsetList.add(tempArrayCopy);
+				if (set[i] > 0) {
+					for (int count = 0; count <= set[i]; count++) {
+						int[] setCopy = set.clone();
+						setCopy[i] = 0;
+						for (int[] tempSet : getSubsetList(setCopy)) {
+							int[] tempSetCopy = tempSet.clone();
+							tempSetCopy[i] = count;
+							subsetList.add(tempSetCopy);
 						}
 					}
 					break;
@@ -144,7 +144,7 @@ public class Cart {
 		return subsetList;
 	}
 
-	private ArrayList<PotterBook> setToBookList(int[] countArray) {
+	private ArrayList<PotterBook> parseSetToBookList(int[] set) {
 		ArrayList<PotterBook> bookList = new ArrayList<PotterBook>();
 		PotterBook potterBook1 = new PotterBook(1, 100);
 		PotterBook potterBook2 = new PotterBook(2, 100);
@@ -152,7 +152,7 @@ public class Cart {
 		PotterBook potterBook4 = new PotterBook(4, 100);
 		PotterBook potterBook5 = new PotterBook(5, 100);
 		for (int i = 0; i < 5; i++) {
-			for (int count = 0; count < countArray[i]; count++) {
+			for (int count = 0; count < set[i]; count++) {
 				switch (i) {
 				case 0:
 					bookList.add(potterBook1);

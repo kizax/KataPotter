@@ -244,5 +244,50 @@ public class KataPotterTest {
 		assertEquals(500, cart.getPrice(), 0);
 
 	}
+	
+	
+	@Test
+	public void test_book_special_case() {
+
+		ArrayList<PotterBook> bookList = new ArrayList<PotterBook>();
+		PotterBook potterBook1 = new PotterBook(1, 100);
+		PotterBook potterBook2 = new PotterBook(2, 100);
+		PotterBook potterBook3 = new PotterBook(3, 100);
+		PotterBook potterBook4 = new PotterBook(4, 100);
+		PotterBook potterBook5 = new PotterBook(5, 100);
+
+		bookList.add(potterBook1);
+		bookList.add(potterBook1);
+		bookList.add(potterBook2);
+		bookList.add(potterBook3);
+		bookList.add(potterBook3);
+		bookList.add(potterBook4);
+		Cart cart = new Cart(bookList);
+		assertEquals(510, cart.getPrice(), 0);
+
+		bookList.clear();
+		bookList.add(potterBook1);
+		bookList.add(potterBook2);
+		bookList.add(potterBook2);
+		bookList.add(potterBook3);
+		bookList.add(potterBook4);
+		bookList.add(potterBook5);
+		cart = new Cart(bookList);
+		assertEquals(475, cart.getPrice(), 0);
+
+		bookList.clear();
+		bookList.add(potterBook1);
+		bookList.add(potterBook1);
+		bookList.add(potterBook2);
+		bookList.add(potterBook2);
+		bookList.add(potterBook3);
+		bookList.add(potterBook3);
+		bookList.add(potterBook4);
+		bookList.add(potterBook5);
+		cart = new Cart(bookList);
+		assertEquals(640, cart.getPrice(), 0);
+
+
+	}
 
 }
