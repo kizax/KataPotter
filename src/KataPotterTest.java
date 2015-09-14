@@ -179,5 +179,70 @@ public class KataPotterTest {
 		assertEquals(400, cart.getPrice(), 0);
 
 	}
+	
+	@Test
+	public void test_book_5() {
+
+		ArrayList<PotterBook> bookList = new ArrayList<PotterBook>();
+		PotterBook potterBook1 = new PotterBook(1, 100);
+		PotterBook potterBook2 = new PotterBook(2, 100);
+		PotterBook potterBook3 = new PotterBook(3, 100);
+		PotterBook potterBook4 = new PotterBook(4, 100);
+		PotterBook potterBook5 = new PotterBook(5, 100);
+
+		bookList.add(potterBook1);
+		bookList.add(potterBook2);
+		bookList.add(potterBook3);
+		bookList.add(potterBook4);
+		bookList.add(potterBook5);
+		Cart cart = new Cart(bookList);
+		assertEquals(375, cart.getPrice(), 0);
+
+		bookList.clear();
+		bookList.add(potterBook2);
+		bookList.add(potterBook2);
+		bookList.add(potterBook3);
+		bookList.add(potterBook3);
+		bookList.add(potterBook3);
+		cart = new Cart(bookList);
+		assertEquals(480, cart.getPrice(), 0);
+
+		bookList.clear();
+		bookList.add(potterBook1);
+		bookList.add(potterBook2);
+		bookList.add(potterBook3);
+		bookList.add(potterBook3);
+		bookList.add(potterBook4);
+		cart = new Cart(bookList);
+		assertEquals(420, cart.getPrice(), 0);
+		
+		bookList.clear();
+		bookList.add(potterBook1);
+		bookList.add(potterBook3);
+		bookList.add(potterBook3);
+		bookList.add(potterBook4);
+		bookList.add(potterBook4);
+		cart = new Cart(bookList);
+		assertEquals(460, cart.getPrice(), 0);
+		
+		bookList.clear();
+		bookList.add(potterBook3);
+		bookList.add(potterBook3);
+		bookList.add(potterBook3);
+		bookList.add(potterBook3);
+		bookList.add(potterBook4);
+		cart = new Cart(bookList);
+		assertEquals(490, cart.getPrice(), 0);
+		
+		bookList.clear();
+		bookList.add(potterBook3);
+		bookList.add(potterBook3);
+		bookList.add(potterBook3);
+		bookList.add(potterBook3);
+		bookList.add(potterBook3);
+		cart = new Cart(bookList);
+		assertEquals(500, cart.getPrice(), 0);
+
+	}
 
 }
