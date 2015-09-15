@@ -6,9 +6,17 @@ public class Cart {
 
 	private ArrayList<PotterBook> bookList;
 
+	Cart() {
+		this.bookList = new ArrayList<PotterBook>();
+	}
+
 	Cart(ArrayList<PotterBook> bookList) {
 		this.bookList = bookList;
 
+	}
+
+	public void add(PotterBook potterBook) {
+		bookList.add(potterBook);
 	}
 
 	public double getPrice() {
@@ -43,7 +51,6 @@ public class Cart {
 			for (int[] subset : subsetList) {
 				int[] differenceSet = getDifferenceSet(countSet, subset);
 				if (!isAllZero(subset) && !isAllZero(differenceSet)) {
-
 
 					Cart cart1 = new Cart(parseSetToBookList(subset));
 					Cart cart2 = new Cart(parseSetToBookList(differenceSet));

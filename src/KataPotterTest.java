@@ -17,8 +17,7 @@ public class KataPotterTest {
 	@Test
 	public void book_none_price_0_test() {
 
-		ArrayList<PotterBook> bookList = new ArrayList<PotterBook>();
-		Cart cart = new Cart(bookList);
+		Cart cart = new Cart();
 
 		double price = cart.getPrice();
 
@@ -28,10 +27,9 @@ public class KataPotterTest {
 	@Test
 	public void book_1_price_100_test() {
 
-		ArrayList<PotterBook> bookList = new ArrayList<PotterBook>();
+		Cart cart = new Cart();
 		PotterBook potterBook1 = new PotterBook(1, 100);
-		bookList.add(potterBook1);
-		Cart cart = new Cart(bookList);
+		cart.add(potterBook1);
 
 		double price = cart.getPrice();
 
@@ -41,11 +39,10 @@ public class KataPotterTest {
 	@Test
 	public void book_1_1_price_200_test() {
 
-		ArrayList<PotterBook> bookList = new ArrayList<PotterBook>();
+		Cart cart = new Cart();
 		PotterBook potterBook1 = new PotterBook(1, 100);
-		bookList.add(potterBook1);
-		bookList.add(potterBook1);
-		Cart cart = new Cart(bookList);
+		cart.add(potterBook1);
+		cart.add(potterBook1);
 
 		double price = cart.getPrice();
 
@@ -55,12 +52,11 @@ public class KataPotterTest {
 	@Test
 	public void book_1_2_price_190_test() {
 
-		ArrayList<PotterBook> bookList = new ArrayList<PotterBook>();
+		Cart cart = new Cart();
 		PotterBook potterBook1 = new PotterBook(1, 100);
 		PotterBook potterBook2 = new PotterBook(2, 100);
-		bookList.add(potterBook1);
-		bookList.add(potterBook2);
-		Cart cart = new Cart(bookList);
+		cart.add(potterBook1);
+		cart.add(potterBook2);
 
 		double price = cart.getPrice();
 
@@ -71,15 +67,13 @@ public class KataPotterTest {
 	@Test
 	public void book_1_2_3_price_270_test() {
 
-		ArrayList<PotterBook> bookList = new ArrayList<PotterBook>();
+		Cart cart = new Cart();
 		PotterBook potterBook1 = new PotterBook(1, 100);
 		PotterBook potterBook2 = new PotterBook(2, 100);
 		PotterBook potterBook3 = new PotterBook(3, 100);
-
-		bookList.add(potterBook1);
-		bookList.add(potterBook2);
-		bookList.add(potterBook3);
-		Cart cart = new Cart(bookList);
+		cart.add(potterBook1);
+		cart.add(potterBook2);
+		cart.add(potterBook3);
 
 		double price = cart.getPrice();
 
@@ -89,32 +83,26 @@ public class KataPotterTest {
 	@Test
 	public void book_2_2_3_price_290_test() {
 
-		ArrayList<PotterBook> bookList = new ArrayList<PotterBook>();
+		Cart cart = new Cart();
 		PotterBook potterBook2 = new PotterBook(2, 100);
 		PotterBook potterBook3 = new PotterBook(3, 100);
-		bookList.clear();
-		bookList.add(potterBook2);
-		bookList.add(potterBook2);
-		bookList.add(potterBook3);
-		Cart cart = new Cart(bookList);
+		cart.add(potterBook2);
+		cart.add(potterBook2);
+		cart.add(potterBook3);
 
 		double price = cart.getPrice();
 
-		assertEquals(290, cart.getPrice(), 0);
+		assertEquals(290, price, 0);
 	}
 
 	@Test
 	public void book_3_3_3_price_300_test() {
 
-		ArrayList<PotterBook> bookList = new ArrayList<PotterBook>();
-
+		Cart cart = new Cart();
 		PotterBook potterBook3 = new PotterBook(3, 100);
-
-		bookList.clear();
-		bookList.add(potterBook3);
-		bookList.add(potterBook3);
-		bookList.add(potterBook3);
-		Cart cart = new Cart(bookList);
+		cart.add(potterBook3);
+		cart.add(potterBook3);
+		cart.add(potterBook3);
 
 		double price = cart.getPrice();
 
@@ -125,17 +113,15 @@ public class KataPotterTest {
 	@Test
 	public void book_1_2_3_4_price_320_test() {
 
-		ArrayList<PotterBook> bookList = new ArrayList<PotterBook>();
+		Cart cart = new Cart();
 		PotterBook potterBook1 = new PotterBook(1, 100);
 		PotterBook potterBook2 = new PotterBook(2, 100);
 		PotterBook potterBook3 = new PotterBook(3, 100);
 		PotterBook potterBook4 = new PotterBook(4, 100);
-
-		bookList.add(potterBook1);
-		bookList.add(potterBook2);
-		bookList.add(potterBook3);
-		bookList.add(potterBook4);
-		Cart cart = new Cart(bookList);
+		cart.add(potterBook1);
+		cart.add(potterBook2);
+		cart.add(potterBook3);
+		cart.add(potterBook4);
 
 		double price = cart.getPrice();
 
@@ -145,17 +131,13 @@ public class KataPotterTest {
 	@Test
 	public void book_2_2_3_3_price_380_test() {
 
-		ArrayList<PotterBook> bookList = new ArrayList<PotterBook>();
-
+		Cart cart = new Cart();
 		PotterBook potterBook2 = new PotterBook(2, 100);
 		PotterBook potterBook3 = new PotterBook(3, 100);
-
-		bookList.clear();
-		bookList.add(potterBook2);
-		bookList.add(potterBook2);
-		bookList.add(potterBook3);
-		bookList.add(potterBook3);
-		Cart cart = new Cart(bookList);
+		cart.add(potterBook2);
+		cart.add(potterBook2);
+		cart.add(potterBook3);
+		cart.add(potterBook3);
 
 		double price = cart.getPrice();
 
@@ -165,15 +147,13 @@ public class KataPotterTest {
 	@Test
 	public void book_3_3_3_4_price_390_test() {
 
-		ArrayList<PotterBook> bookList = new ArrayList<PotterBook>();
+		Cart cart = new Cart();
 		PotterBook potterBook3 = new PotterBook(3, 100);
 		PotterBook potterBook4 = new PotterBook(4, 100);
-		bookList.clear();
-		bookList.add(potterBook3);
-		bookList.add(potterBook3);
-		bookList.add(potterBook3);
-		bookList.add(potterBook4);
-		Cart cart = new Cart(bookList);
+		cart.add(potterBook3);
+		cart.add(potterBook3);
+		cart.add(potterBook3);
+		cart.add(potterBook4);
 
 		double price = cart.getPrice();
 
@@ -184,14 +164,12 @@ public class KataPotterTest {
 	@Test
 	public void book_3_3_3_3_price_400_test() {
 
-		ArrayList<PotterBook> bookList = new ArrayList<PotterBook>();
+		Cart cart = new Cart();
 		PotterBook potterBook3 = new PotterBook(3, 100);
-		bookList.clear();
-		bookList.add(potterBook3);
-		bookList.add(potterBook3);
-		bookList.add(potterBook3);
-		bookList.add(potterBook3);
-		Cart cart = new Cart(bookList);
+		cart.add(potterBook3);
+		cart.add(potterBook3);
+		cart.add(potterBook3);
+		cart.add(potterBook3);
 
 		double price = cart.getPrice();
 
@@ -202,19 +180,17 @@ public class KataPotterTest {
 	@Test
 	public void book_1_2_3_4_5_price_375_test() {
 
-		ArrayList<PotterBook> bookList = new ArrayList<PotterBook>();
+		Cart cart = new Cart();
 		PotterBook potterBook1 = new PotterBook(1, 100);
 		PotterBook potterBook2 = new PotterBook(2, 100);
 		PotterBook potterBook3 = new PotterBook(3, 100);
 		PotterBook potterBook4 = new PotterBook(4, 100);
 		PotterBook potterBook5 = new PotterBook(5, 100);
-
-		bookList.add(potterBook1);
-		bookList.add(potterBook2);
-		bookList.add(potterBook3);
-		bookList.add(potterBook4);
-		bookList.add(potterBook5);
-		Cart cart = new Cart(bookList);
+		cart.add(potterBook1);
+		cart.add(potterBook2);
+		cart.add(potterBook3);
+		cart.add(potterBook4);
+		cart.add(potterBook5);
 
 		double price = cart.getPrice();
 
@@ -224,17 +200,14 @@ public class KataPotterTest {
 	@Test
 	public void book_2_2_3_3_3_price_480_test() {
 
-		ArrayList<PotterBook> bookList = new ArrayList<PotterBook>();
+		Cart cart = new Cart();
 		PotterBook potterBook2 = new PotterBook(2, 100);
 		PotterBook potterBook3 = new PotterBook(3, 100);
-
-		bookList.clear();
-		bookList.add(potterBook2);
-		bookList.add(potterBook2);
-		bookList.add(potterBook3);
-		bookList.add(potterBook3);
-		bookList.add(potterBook3);
-		Cart cart = new Cart(bookList);
+		cart.add(potterBook2);
+		cart.add(potterBook2);
+		cart.add(potterBook3);
+		cart.add(potterBook3);
+		cart.add(potterBook3);
 
 		double price = cart.getPrice();
 
@@ -244,18 +217,16 @@ public class KataPotterTest {
 	@Test
 	public void book_1_2_3_3_4_price_420_test() {
 
-		ArrayList<PotterBook> bookList = new ArrayList<PotterBook>();
+		Cart cart = new Cart();
 		PotterBook potterBook1 = new PotterBook(1, 100);
 		PotterBook potterBook2 = new PotterBook(2, 100);
 		PotterBook potterBook3 = new PotterBook(3, 100);
 		PotterBook potterBook4 = new PotterBook(4, 100);
-		bookList.clear();
-		bookList.add(potterBook1);
-		bookList.add(potterBook2);
-		bookList.add(potterBook3);
-		bookList.add(potterBook3);
-		bookList.add(potterBook4);
-		Cart cart = new Cart(bookList);
+		cart.add(potterBook1);
+		cart.add(potterBook2);
+		cart.add(potterBook3);
+		cart.add(potterBook3);
+		cart.add(potterBook4);
 
 		double price = cart.getPrice();
 
@@ -266,17 +237,15 @@ public class KataPotterTest {
 	@Test
 	public void book_1_3_3_4_4_price_460_test() {
 
-		ArrayList<PotterBook> bookList = new ArrayList<PotterBook>();
+		Cart cart = new Cart();
 		PotterBook potterBook1 = new PotterBook(1, 100);
 		PotterBook potterBook3 = new PotterBook(3, 100);
 		PotterBook potterBook4 = new PotterBook(4, 100);
-		bookList.clear();
-		bookList.add(potterBook1);
-		bookList.add(potterBook3);
-		bookList.add(potterBook3);
-		bookList.add(potterBook4);
-		bookList.add(potterBook4);
-		Cart cart = new Cart(bookList);
+		cart.add(potterBook1);
+		cart.add(potterBook3);
+		cart.add(potterBook3);
+		cart.add(potterBook4);
+		cart.add(potterBook4);
 
 		double price = cart.getPrice();
 
@@ -286,17 +255,14 @@ public class KataPotterTest {
 	@Test
 	public void book_3_3_3_4_4_price_490_test() {
 
-		ArrayList<PotterBook> bookList = new ArrayList<PotterBook>();
-
+		Cart cart = new Cart();
 		PotterBook potterBook3 = new PotterBook(3, 100);
 		PotterBook potterBook4 = new PotterBook(4, 100);
-		bookList.clear();
-		bookList.add(potterBook3);
-		bookList.add(potterBook3);
-		bookList.add(potterBook3);
-		bookList.add(potterBook3);
-		bookList.add(potterBook4);
-		Cart cart = new Cart(bookList);
+		cart.add(potterBook3);
+		cart.add(potterBook3);
+		cart.add(potterBook3);
+		cart.add(potterBook3);
+		cart.add(potterBook4);
 
 		double price = cart.getPrice();
 
@@ -306,16 +272,13 @@ public class KataPotterTest {
 	@Test
 	public void book_3_3_3_3_3_price_500_test() {
 
-		ArrayList<PotterBook> bookList = new ArrayList<PotterBook>();
-
+		Cart cart = new Cart();
 		PotterBook potterBook3 = new PotterBook(3, 100);
-		bookList.clear();
-		bookList.add(potterBook3);
-		bookList.add(potterBook3);
-		bookList.add(potterBook3);
-		bookList.add(potterBook3);
-		bookList.add(potterBook3);
-		Cart cart = new Cart(bookList);
+		cart.add(potterBook3);
+		cart.add(potterBook3);
+		cart.add(potterBook3);
+		cart.add(potterBook3);
+		cart.add(potterBook3);
 
 		double price = cart.getPrice();
 
@@ -326,20 +289,18 @@ public class KataPotterTest {
 	@Test
 	public void book_1_1_2_3_3_4_price_510_test() {
 
-		ArrayList<PotterBook> bookList = new ArrayList<PotterBook>();
+		Cart cart = new Cart();
 		PotterBook potterBook1 = new PotterBook(1, 100);
 		PotterBook potterBook2 = new PotterBook(2, 100);
 		PotterBook potterBook3 = new PotterBook(3, 100);
 		PotterBook potterBook4 = new PotterBook(4, 100);
 		PotterBook potterBook5 = new PotterBook(5, 100);
-
-		bookList.add(potterBook1);
-		bookList.add(potterBook1);
-		bookList.add(potterBook2);
-		bookList.add(potterBook3);
-		bookList.add(potterBook3);
-		bookList.add(potterBook4);
-		Cart cart = new Cart(bookList);
+		cart.add(potterBook1);
+		cart.add(potterBook1);
+		cart.add(potterBook2);
+		cart.add(potterBook3);
+		cart.add(potterBook3);
+		cart.add(potterBook4);
 
 		double price = cart.getPrice();
 
@@ -349,20 +310,18 @@ public class KataPotterTest {
 	@Test
 	public void book_1_2_2_3_4_5_price_475_test() {
 
-		ArrayList<PotterBook> bookList = new ArrayList<PotterBook>();
+		Cart cart = new Cart();
 		PotterBook potterBook1 = new PotterBook(1, 100);
 		PotterBook potterBook2 = new PotterBook(2, 100);
 		PotterBook potterBook3 = new PotterBook(3, 100);
 		PotterBook potterBook4 = new PotterBook(4, 100);
 		PotterBook potterBook5 = new PotterBook(5, 100);
-		bookList.clear();
-		bookList.add(potterBook1);
-		bookList.add(potterBook2);
-		bookList.add(potterBook2);
-		bookList.add(potterBook3);
-		bookList.add(potterBook4);
-		bookList.add(potterBook5);
-		Cart cart = new Cart(bookList);
+		cart.add(potterBook1);
+		cart.add(potterBook2);
+		cart.add(potterBook2);
+		cart.add(potterBook3);
+		cart.add(potterBook4);
+		cart.add(potterBook5);
 
 		double price = cart.getPrice();
 
@@ -372,23 +331,20 @@ public class KataPotterTest {
 	@Test
 	public void book_1_1_2_2_3_3_4_5_price_640_test() {
 
-		ArrayList<PotterBook> bookList = new ArrayList<PotterBook>();
+		Cart cart = new Cart();
 		PotterBook potterBook1 = new PotterBook(1, 100);
 		PotterBook potterBook2 = new PotterBook(2, 100);
 		PotterBook potterBook3 = new PotterBook(3, 100);
 		PotterBook potterBook4 = new PotterBook(4, 100);
 		PotterBook potterBook5 = new PotterBook(5, 100);
-
-		bookList.clear();
-		bookList.add(potterBook1);
-		bookList.add(potterBook1);
-		bookList.add(potterBook2);
-		bookList.add(potterBook2);
-		bookList.add(potterBook3);
-		bookList.add(potterBook3);
-		bookList.add(potterBook4);
-		bookList.add(potterBook5);
-		Cart cart = new Cart(bookList);
+		cart.add(potterBook1);
+		cart.add(potterBook1);
+		cart.add(potterBook2);
+		cart.add(potterBook2);
+		cart.add(potterBook3);
+		cart.add(potterBook3);
+		cart.add(potterBook4);
+		cart.add(potterBook5);
 
 		double price = cart.getPrice();
 
